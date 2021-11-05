@@ -42,3 +42,4 @@ bld/
 *.ldf
 
 .env
+**/__pycache__/**
