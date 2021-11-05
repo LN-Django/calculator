@@ -1,5 +1,5 @@
-# boilerplate
-Django + REST boilerplate for future services
+# Calculator Service
+Service to calculate **Mehrwertsteuer** of a product
 
 ## Running the App Locally
 To run the dev server please run the following command.
@@ -60,9 +60,7 @@ heroku container:release -a intense-reef-35485 web
 
 ## Demo
 
-**Staging**: https://intense-reef-35485.herokuapp.com/api/v1/swagger
-
-**Production**: https://enigmatic-dusk-38395.herokuapp.com/api/v1/swagger 
+**Staging**: https://cryptic-wildwood-57466.herokuapp.com/
 
 ## CI/CD Pipeline
 For this project, CI/CD is also implemented using [Github Actions](https://github.com/features/actions). Please take a look into the diagram below to see more about the CI/CD pipeline.
