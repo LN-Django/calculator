@@ -22,22 +22,19 @@ jobs:
           APP_NAME: ${{ secrets.APP_NAME }}
           SECRET_KEY: ${{secrets.SECRET_KEY}}
           REMOTE: 1
-  create-release-pr:
+  release:
     runs-on: ubuntu-latest
-    steps:
-      - name: checkout
-        uses: actions/checkout@v2
+    steps:  
+      - uses: actions/checkout@v2
+      - name: Bump version and push tag
+        id: tag_version
+        uses: mathieudutour/github-tag-action@v5.6
         with:
-          ref: main
-          fetch-depth: 0
-      - name: generate-pr
-        uses: devops-infra/action-pull-request@v0.4.2
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Create a GitHub release
+        uses: ncipollo/release-action@v1
         with:
-          github_token: ${{ secrets.GH_TOKEN }}
-          source_branch: main
-          target_branch: production
-          title: "[Release]: ${{github.event.commits[0].message}}"
-          body: "## Automated PR by GitHub action\n"
-          get_diff: true
-          ignore_users: "dependabot"
+          tag: ${{ steps.tag_version.outputs.new_tag }}
+          name: Release ${{ steps.tag_version.outputs.new_tag }}
+          body: ${{ steps.tag_version.outputs.changelog }}
      
