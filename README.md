@@ -1,5 +1,5 @@
-# boilerplate
-Django + REST boilerplate for future services
+# Calculator Service
+Service to calculate **Mehrwertsteuer** of a product
 
 ## Running the App Locally
 To run the dev server please run the following command.
@@ -13,6 +13,7 @@ To run the dev server please run the following command.
 
 ### Prerequisites
 - Docker is installed and accessible via terminal
+- Docker is running (try running `docker ps` to see if Docker is running on your machine)
 
 How to use Docker to serve the application locally
 
@@ -23,10 +24,10 @@ docker build -t web:latest .
 
 Run the container with the name of `boilerplate` using the image built on the last step
 ```
-docker run -d --name boilerplate -e "PORT=8765" -e "DEBUG=1" -p 8007:8765 web:latest
+docker run -d --name boilerplate -e "PORT=8765" -e "DEBUG=1" -p 8000:8765 web:latest
 ```
 
-Check on `http://localhost:8007` to see if the app is running.
+Check on `http://localhost:8000` to see if the app is running.
 
 Stop the docker container
 ```
@@ -57,13 +58,10 @@ Release the image
 heroku container:release -a intense-reef-35485 web
 ```
 
-# Notes
-## Staging
-Heroku URLs: https://intense-reef-35485.herokuapp.com/ | https://git.heroku.com/intense-reef-35485.git.
+## Demo
 
-App name: intense-reef-35485
+**Staging**: https://cryptic-wildwood-57466.herokuapp.com/
 
-## Production
-Heroku URLs: https://enigmatic-dusk-38395.herokuapp.com/ | https://git.heroku.com/enigmatic-dusk-38395.git.
-
-App name: enigmatic-dusk-38395
+## CI/CD Pipeline
+For this project, CI/CD is also implemented using [Github Actions](https://github.com/features/actions). Please take a look into the diagram below to see more about the CI/CD pipeline.
+![CI/CD Diagram](https://github.com/LN-Django/boilerplate/blob/main/docs/CI_CD_KBE.drawio.png?raw=true)
