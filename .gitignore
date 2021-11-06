@@ -45,3 +45,6 @@ bld/
 
 # pycache
 __pycache__/
+
+#static
+static/
