@@ -16,9 +16,9 @@ docs_url = protocol + "://" + docs_base_url + "/api/v1"
 
 schema_view = get_schema_view(
     openapi.Info(
-        title="Boilerplate API",
+        title="Calculator API",
         default_version='v0.0.1',
-        description="Sample API to boilerplate future services.",
+        description="Calculator API to calculate price inkl. tax.",
         terms_of_service="https://www.google.com/policies/terms/",
         contact=openapi.Contact(email="louisandrew3@gmail.com"),
         license=openapi.License(name="BSD License"),
@@ -31,7 +31,7 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'', include('restapi.urls')),
+    url(r'', include('calculator.urls')),
     url(r'^swagger(?P<format>\.json|\.yaml)$',
         schema_view.without_ui(cache_timeout=0), name='schema-json'),
     url(r'^api/v1/swagger/$', schema_view.with_ui('swagger',

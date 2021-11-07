@@ -42,4 +42,8 @@ bld/
 *.ldf
 
 .env
+
+# pycache
+__pycache__/
 **/__pycache__/**
+static/
