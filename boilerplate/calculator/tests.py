@@ -1,3 +1,4 @@
+'''
 from django.test import TestCase
 
 from django.urls import reverse
@@ -16,4 +17,4 @@ class CalculatorTest(APITestCase):
         #data = {'taxed_price': 'DabApps'}
         response = self.client.post()
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        
+'''        
