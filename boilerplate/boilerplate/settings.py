@@ -86,6 +86,40 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+#Logger
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': ('%(asctime)s [%(process)d] [%(levelname)s]\n' +
+                       'DJANGO LOGGER: ' +
+                       'pathname=%(pathname)s lineno=%(lineno)s\n' +
+                       'funcname=%(funcName)s %(message)s'),
+            'datefmt': '%Y-%m-%d %H:%M:%S'
+        },
+    },
+    'handlers': {
+        'null': {
+            'level': 'DEBUG',
+            'class': 'logging.NullHandler',
+            'formatter': 'verbose'
+        },
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose'
+        }
+    },
+    'loggers': {
+        'mainLogger': {
+            'handlers': ['console'],
+            'level': 'INFO',
+            'formatter': 'verbose'
+        }
+    }
+}
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
