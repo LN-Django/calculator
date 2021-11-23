@@ -3,15 +3,10 @@ from rest_framework.views import APIView
 from rest_framework import permissions
 from drf_yasg import openapi
 from drf_yasg.utils import swagger_auto_schema
-import logging    
+import logging
+from .services import calculate_tax    
+from .validators import validate_num
 
-
-
-def calculate_tax(price):
-    '''
-    calculate the tax of a product
-    '''
-    return price * 1.19
 
 class POSTView(APIView):
     
@@ -39,7 +34,7 @@ class POSTView(APIView):
         data = request.data
 
         #Validator
-        if (not(data['base_price'].isnumeric()) or data['base_price'] <= 0):
+        if (not(validate_num(data['base_price']))):
             self.logger.error('Invalid base price!')
             return Response({'message': 'Bad request: invalid parameter'}, status=400)
 
