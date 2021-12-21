@@ -30,11 +30,14 @@ class POSTView(APIView):
         """
         Return JSON price + tax.
         """
+        key = 'base_price'
         data = request.data
 
-        # Validator
-        if (not(validate_num(data['base_price']))):
-            self.logger.error('Invalid base price!')
-            return Response({'message': 'Bad request: invalid `base_price` parameter'}, status=400)
+        if key in data:
+            if (not(validate_num(data[key]))):
+                self.logger.error('Invalid base price!')
+                return Response({'message': 'Bad request: invalid `base_price` parameter'}, status=400)
 
-        return Response({'taxed_price': calculate_tax(data['base_price'])})
+            return Response({'taxed_price': calculate_tax(data['base_price'])})
+        else:
+             return Response({'message': 'Bad request: request body is missing'}, status=400)
