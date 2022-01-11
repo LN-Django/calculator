@@ -2,4 +2,5 @@ def calculate_tax(price):
     '''
     calculate the tax of a product
     '''
-    return price * 1.19
+    taxed_price = price * 1.19
+    return round(taxed_price, 2)
