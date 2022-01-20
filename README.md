@@ -45,17 +45,17 @@ Heroku is a cloud platform (PaaS) to build and deploy the application ([Heroku d
 
 Building the image
 ```
-docker build -t registry.heroku.com/intense-reef-35485/web .
+docker build -t registry.heroku.com/cryptic-wildwood-57466/web .
 ```
 
 Push the Docker container
 ```
-docker push registry.heroku.com/intense-reef-35485/web 
+docker push registry.heroku.com/cryptic-wildwood-57466/web 
 ```
 
 Release the image
 ```
-heroku container:release -a intense-reef-35485 web
+heroku container:release -a cryptic-wildwood-57466 web
 ```
 
 ## Demo
